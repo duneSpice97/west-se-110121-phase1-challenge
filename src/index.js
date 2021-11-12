@@ -28,6 +28,7 @@ function renderPost(data) {
 
     likeButton.addEventListener('click', (e) => handleClick(e, data, postLikes));
     commentForm.addEventListener('submit', (e) => handleSubmit(e));
+    commentList.addEventListener('click', (e) => deleteComment(e))
 
     firstComment.innerText = data.comments[0].content;
     secondComment.innerText = data.comments[1].content;
@@ -45,4 +46,8 @@ function handleSubmit(e) {
     newComment.id = "new-comment";
     newComment.innerText = e.target.comment.value;;
     commentList.appendChild(newComment);
+}
+
+function deleteComment(e) {
+    e.target.remove();
 }
