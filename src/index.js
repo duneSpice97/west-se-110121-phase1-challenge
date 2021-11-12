@@ -27,11 +27,11 @@ function renderPost(data) {
     postLikes.innerText = `${data.likes} likes`;
 
     likeButton.addEventListener('click', (e) => handleClick(e, data, postLikes));
-    commentForm.addEventListener('submit', (e) => handleSubmit(e, data));
+    commentForm.addEventListener('submit', (e) => handleSubmit(e));
 
-    firstComment.innerHTML = data.comments[0].content;
-    secondComment.innerHTML = data.comments[1].content;
-    thirdComment.innerHTML = data.comments[2].content;
+    firstComment.innerText = data.comments[0].content;
+    secondComment.innerText = data.comments[1].content;
+    thirdComment.innerText = data.comments[2].content;
 }
 
 function handleClick(e, data, postLikes) {
@@ -39,7 +39,7 @@ function handleClick(e, data, postLikes) {
     postLikes.innerText = `${++data.likes} likes`;
 }
 
-function handleSubmit(e, data) {
+function handleSubmit(e) {
     e.preventDefault();
     const newComment = document.createElement('li');
     newComment.id = "new-comment";
